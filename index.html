@@ -1,48 +1,58 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Ngộc muốn chúng mình là gì?</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       background: #111;
       color: #fff;
       font-family: "Comic Sans MS", cursive;
       text-align: center;
       margin: 0;
-      padding-top: 40px;
-      overflow-x: hidden;
+      padding: 40px 0;
     }
 
     h1 {
       color: #ff4d6d;
       margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
     }
 
     img {
       width: 280px;
       border-radius: 16px;
       box-shadow: 0 0 20px red;
-      pointer-events: none; /* FIX QUAN TRỌNG */
+      display: block;
+      margin: 0 auto;
+      pointer-events: none; /* KHÔNG BAO GIỜ ĐÈ */
+      position: relative;
+      z-index: 1;
     }
 
     .buttons {
       margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
       position: relative;
-      height: 220px;
-      z-index: 10;
+      z-index: 9999; /* ÉP LÊN TRÊN TẤT CẢ */
     }
 
     button {
       border: none;
-      cursor: pointer;
       border-radius: 12px;
-      transition: all 0.3s ease;
       font-size: 20px;
       padding: 15px 30px;
-      position: relative;
-      z-index: 20;
+      cursor: pointer;
+      pointer-events: auto; /* ÉP NHẬN CLICK */
+      z-index: 10000;
     }
 
     #yesBtn {
@@ -55,7 +65,6 @@
     #noBtn {
       background: #555;
       color: white;
-      margin-left: 20px;
       transform: scale(1);
     }
   </style>
@@ -88,34 +97,30 @@
     ];
     let noIndex = 0;
 
-    noBtn.addEventListener("click", () => {
-      // NO nhỏ dần
+    noBtn.onclick = () => {
       noScale -= 0.15;
       if (noScale < 0.25) noScale = 0.25;
       noBtn.style.transform = `scale(${noScale})`;
 
-      // đổi chữ
       noBtn.textContent = noTexts[noIndex % noTexts.length];
       noIndex++;
 
-      // YES to dần
       yesScale += 0.2;
       yesBtn.style.transform = `scale(${yesScale})`;
 
-      // YES nuốt NO
       if (yesScale >= 2.5) {
         noBtn.style.display = "none";
         yesBtn.textContent = "YES 💘 YES 💘 YES 💘";
       }
-    });
+    };
 
-    yesBtn.addEventListener("click", () => {
+    yesBtn.onclick = () => {
       document.body.innerHTML = `
         <h1 style="color:#ff4d6d;">YESSSSSSSSSSSSSSSSSSSSSSSSSSS!!! ❤️</h1>
         <p style="font-size:24px;">Tôi cảm ơn b Ngộc (r h s b)</p>
         <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWk1Yjc4MTU0cWpqcXBsNDVoMDh6M25qbnNuNGZ1d3BnbjMwd3g2eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zUPl5r33jdSfR4Zdqq/giphy.gif" width="300">
       `;
-    });
+    };
   </script>
 
 </body>
