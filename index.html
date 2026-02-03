@@ -2,42 +2,48 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <title>Ngộc muốn chúng mình là gì? Vì tôi muốn chúng mình là hơn</title>
+  <title>Ngộc muốn chúng mình là gì?</title>
+
   <style>
     body {
-  background: #111;
-  color: #fff;
-  font-family: "Comic Sans MS", cursive;
-  text-align: center;
-  margin: 0;
-  padding-top: 40px;
-}
+      background: #111;
+      color: #fff;
+      font-family: "Comic Sans MS", cursive;
+      text-align: center;
+      margin: 0;
+      padding-top: 40px;
+      overflow-x: hidden;
+    }
 
-img {
-  width: 280px;
-  border-radius: 16px;
-  box-shadow: 0 0 20px red;
-  pointer-events: none; /* QUAN TRỌNG */
-}
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 20px;
+    }
 
-.buttons {
-  margin-top: 40px;
-  position: relative;
-  height: 200px;
-  z-index: 10;
-}
+    img {
+      width: 280px;
+      border-radius: 16px;
+      box-shadow: 0 0 20px red;
+      pointer-events: none; /* FIX QUAN TRỌNG */
+    }
 
-button {
-  border: none;
-  cursor: pointer;
-  border-radius: 12px;
-  transition: all 0.3s ease;
-  font-size: 20px;
-  padding: 15px 30px;
-  position: relative;
-  z-index: 20;
-}
+    .buttons {
+      margin-top: 40px;
+      position: relative;
+      height: 220px;
+      z-index: 10;
+    }
 
+    button {
+      border: none;
+      cursor: pointer;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      font-size: 20px;
+      padding: 15px 30px;
+      position: relative;
+      z-index: 20;
+    }
 
     #yesBtn {
       background: #ff4d6d;
@@ -54,11 +60,11 @@ button {
     }
   </style>
 </head>
+
 <body>
 
   <h1>Ngộc muốn chúng mình là gì? Vì tôi muốn chúng mình là hơn...</h1>
 
-  <!-- GIF minion creepy -->
   <img src="https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3Z3Zkamdsbjd3NGt3MzVpeWhicXY0eGluNTYxMmlkcGtnaGg2azRmYSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XpvGVgZhRK9O3SDROK/giphy.gif">
 
   <div class="buttons">
@@ -85,8 +91,8 @@ button {
     noBtn.addEventListener("click", () => {
       // NO nhỏ dần
       noScale -= 0.15;
-      if (noScale < 0.2) noScale = 0.2;
-      noBtn.style.transform = scale(${noScale});
+      if (noScale < 0.25) noScale = 0.25;
+      noBtn.style.transform = `scale(${noScale})`;
 
       // đổi chữ
       noBtn.textContent = noTexts[noIndex % noTexts.length];
@@ -94,9 +100,9 @@ button {
 
       // YES to dần
       yesScale += 0.2;
-      yesBtn.style.transform = scale(${yesScale});
+      yesBtn.style.transform = `scale(${yesScale})`;
 
-      // khi YES quá to -> ẩn NO
+      // YES nuốt NO
       if (yesScale >= 2.5) {
         noBtn.style.display = "none";
         yesBtn.textContent = "YES 💘 YES 💘 YES 💘";
@@ -106,13 +112,11 @@ button {
     yesBtn.addEventListener("click", () => {
       document.body.innerHTML = `
         <h1 style="color:#ff4d6d;">YESSSSSSSSSSSSSSSSSSSSSSSSSSS!!! ❤️</h1>
-        <p style="font-size:24px;">Tôi cảm ơn b Ngộc(r h s b)</p>
-        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWk1Yjc4MTU0cWpqcXBsNDVoMDh6M25qbnNuNGZ1d3BnbjMwd3g2eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zUPl5r33jdSfR4Zdqq/giphy.gif">
+        <p style="font-size:24px;">Tôi cảm ơn b Ngộc (r h s b)</p>
+        <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWk1Yjc4MTU0cWpqcXBsNDVoMDh6M25qbnNuNGZ1d3BnbjMwd3g2eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/zUPl5r33jdSfR4Zdqq/giphy.gif" width="300">
       `;
     });
   </script>
 
 </body>
-
 </html>
-
