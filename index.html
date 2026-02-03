@@ -5,42 +5,39 @@
   <title>Ngộc muốn chúng mình là gì? Vì tôi muốn chúng mình là hơn</title>
   <style>
     body {
-      background: #111;
-      color: #fff;
-      font-family: "Comic Sans MS", cursive;
-      text-align: center;
-      margin: 0;
-      padding-top: 40px;
-    }
-
-    h1 {
-      color: #ff4d6d;
-      margin-bottom: 20px;
-    }
-
-    img {
-      width: 280px;
-      border-radius: 16px;
-      box-shadow: 0 0 20px red;
-      pointer-events: none;
-
+  background: #111;
+  color: #fff;
+  font-family: "Comic Sans MS", cursive;
+  text-align: center;
+  margin: 0;
+  padding-top: 40px;
 }
-    }
 
-    .buttons {
-      margin-top: 40px;
-      position: relative;
-      height: 150px;
-    }
+img {
+  width: 280px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px red;
+  pointer-events: none; /* QUAN TRỌNG */
+}
 
-    button {
-      border: none;
-      cursor: pointer;
-      border-radius: 12px;
-      transition: all 0.3s ease;
-      font-size: 20px;
-      padding: 15px 30px;
-    }
+.buttons {
+  margin-top: 40px;
+  position: relative;
+  height: 200px;
+  z-index: 10;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  font-size: 20px;
+  padding: 15px 30px;
+  position: relative;
+  z-index: 20;
+}
+
 
     #yesBtn {
       background: #ff4d6d;
@@ -118,3 +115,4 @@
 </body>
 
 </html>
+
